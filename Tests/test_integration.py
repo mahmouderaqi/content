@@ -551,6 +551,7 @@ def __create_integration_instance(server, username, password, integration_name, 
             # param is required - take default value
             param_conf['value'] = param_conf['defaultValue']
         module_instance['data'].append(param_conf)
+    logging_manager.warning(f'creating instance with body:\n{module_instance}')
     try:
         res = demisto_client.generic_request_func(self=integration_conf_client, method='PUT',
                                                   path='/settings/integration',
